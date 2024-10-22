@@ -1,0 +1,8 @@
+[Unit]
+Description=Delete btrfs snapshot time based
+
+[Service]
+Type=oneshot
+ExecStart=/root/btrfs-snapshot-delete.clj -d true -p '/srv/dev-disk-by-uuid-cc24614a-0931-4689-ada6-1c74c9223780' -s false -c '{"btrfs-disk" {:day2day 2 :first-of-day 45 :first-of-month 13 :first-of-year 10}}'
+StandardOutput=append:/root/btrfs-snapshot-delete.log
+StandardError=append:/root/btrfs-snapshot-delete-error.log
